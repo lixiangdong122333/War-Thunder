@@ -22,7 +22,7 @@ public abstract class Aerocraft {
     public Aerocraft(int wide, int high,int life,int pitch,int speed){
         this.wide=wide;
         this.high=high;
-        x=wide;
+        x=World.WIDTH;
         y= new Random().nextInt(500);
         this.speed=speed;
         this.life=life;
