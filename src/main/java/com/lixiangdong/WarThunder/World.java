@@ -11,8 +11,8 @@ public class World extends JPanel {
     public static final int WIDTH=1600;
     public static final int HEIGHT=900;
     Warplanes aircraft=new Yak_3p();
-    EnemyAirplane[] enemyAirplanes={new F6f(),new A6M_Zero()};
-    Bullet[] bullets={new EnemyBullet(11,11),new WeBullet(100,100)};
+    EnemyAirplane[] enemyAirplanes={};
+    Bullet[] bullets={};
     public void move(){
         for (int i=0;i<enemyAirplanes.length;i++){
             enemyAirplanes[i].move();
@@ -31,11 +31,15 @@ public class World extends JPanel {
             return new F6f();
         }
     }
+    private static int addEnemyAirplaneFrequencyLimit;
     /**扩容数组并把随机类型的飞机置于末位*/
     public void addEnemyAirplane(){
-        EnemyAirplane obj=getEnemyAirplane();
-        enemyAirplanes= Arrays.copyOf(enemyAirplanes,enemyAirplanes.length+1);
-        enemyAirplanes[enemyAirplanes.length-1]=obj;
+        addEnemyAirplaneFrequencyLimit++;
+        if (addEnemyAirplaneFrequencyLimit%30==0) {
+            EnemyAirplane obj = getEnemyAirplane();
+            enemyAirplanes = Arrays.copyOf(enemyAirplanes, enemyAirplanes.length + 1);
+            enemyAirplanes[enemyAirplanes.length - 1] = obj;
+        }
     }
     public void action(){
         //计时

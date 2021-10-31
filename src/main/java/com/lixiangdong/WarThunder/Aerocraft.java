@@ -23,7 +23,7 @@ public abstract class Aerocraft {
         this.wide=wide;
         this.high=high;
         x=World.WIDTH-this.wide;
-        y= new Random().nextInt(500);
+        y= new Random().nextInt(800)+50;
         this.speed=speed;
         this.life=life;
         this.pitch=pitch;
