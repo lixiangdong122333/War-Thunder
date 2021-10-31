@@ -1,5 +1,7 @@
 package com.lixiangdong.WarThunder;
 
+import javax.swing.*;
+
 /**
  * 敌机的父类
  */
@@ -22,5 +24,5 @@ public abstract class EnemyAirplane extends Aerocraft {
     }
 
     @Override
-    public abstract void gitImage();
+    public abstract ImageIcon gitImage();
 }

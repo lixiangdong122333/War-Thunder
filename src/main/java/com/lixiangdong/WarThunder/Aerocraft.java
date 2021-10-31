@@ -1,9 +1,14 @@
 package com.lixiangdong.WarThunder;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.Random;
 
 /** 所有飞行器的父类 */
 public abstract class Aerocraft {
+    public static final int LIVE=1;
+    public static final int DEAD=0;
+    protected int state=LIVE;
     protected int wide;
     protected int high;
     protected int x;
@@ -17,8 +22,8 @@ public abstract class Aerocraft {
     public Aerocraft(int wide, int high,int life,int pitch,int speed){
         this.wide=wide;
         this.high=high;
-        x=-wide;
-        y= new Random().nextInt(1000);
+        x=wide;
+        y= new Random().nextInt(500);
         this.speed=speed;
         this.life=life;
         this.pitch=pitch;
@@ -34,5 +39,9 @@ public abstract class Aerocraft {
     }
     /** 移动 */
     public abstract void move();
-    public abstract void gitImage();
+    public abstract ImageIcon gitImage();
+    public void paintImage(Graphics g){
+        if (this.state==LIVE)
+            this.gitImage().paintIcon(null,g,0,500);
+    }
 }

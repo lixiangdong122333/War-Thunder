@@ -1,5 +1,7 @@
 package com.lixiangdong.WarThunder;
 
+import javax.swing.*;
+
 /**
  * 可操纵飞机的父类
  */
@@ -10,5 +12,5 @@ public abstract class Warplanes extends Aerocraft {
 
     public abstract void move();
 
-    public abstract void gitImage();
+    public abstract ImageIcon gitImage();
 }
