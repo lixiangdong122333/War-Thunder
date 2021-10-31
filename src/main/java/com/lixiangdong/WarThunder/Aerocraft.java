@@ -22,7 +22,7 @@ public abstract class Aerocraft {
     public Aerocraft(int wide, int high,int life,int pitch,int speed){
         this.wide=wide;
         this.high=high;
-        x=World.WIDTH;
+        x=World.WIDTH-this.wide;
         y= new Random().nextInt(500);
         this.speed=speed;
         this.life=life;
@@ -42,6 +42,6 @@ public abstract class Aerocraft {
     public abstract ImageIcon gitImage();
     public void paintImage(Graphics g){
         if (this.state==LIVE)
-            this.gitImage().paintIcon(null,g,0,500);
+            this.gitImage().paintIcon(null,g,x,y);
     }
 }
